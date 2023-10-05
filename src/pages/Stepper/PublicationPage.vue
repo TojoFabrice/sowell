@@ -7,11 +7,22 @@
             <q-icon name="book" />
           </template>
         </q-input>
-        <q-input outlined label="Field" v-model="work.link">
+        <q-input
+          outlined
+          label="Field"
+          v-model="work.link"
+          :class="{ 'is-invalid': !isLinkValid(work.link) }"
+        >
           <template v-slot:prepend>
             <q-icon name="link" />
           </template>
         </q-input>
+        <div
+          class="validation-message"
+          v-if="!isLinkValid(work.link) && work.link !== ''"
+        >
+          Invalid link. Please enter a valid HTTP or HTTPS link.
+        </div>
         <q-input
           label="Year"
           v-model.number="work.year"
@@ -33,4 +44,21 @@
 <script setup lang="ts">
 import { useFormStore } from 'src/stores/form-store';
 const { form } = useFormStore();
+
+const isLinkValid = (link: string) => {
+  const linkPattern =
+    /^(http:\/\/|https:\/\/)(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/i;
+  return linkPattern.test(link);
+};
 </script>
+
+<style>
+.is-invalid {
+  border-color: red !important;
+}
+
+.validation-message {
+  color: red;
+  margin-top: 5px;
+}
+</style>

@@ -33,8 +33,8 @@ yarn dev
 
 Ideally, you will make one (1) commit for each of the following tasks:
 
-- [ ] Create reusable components under the "src/components" directory as you see fit and use them in the "src/pages/SummaryPage.vue" page to minimise its length
-- [ ] Add a link validation rule to the following code located in "src/pages/PublicationPage.vue"
+- [ok] Create reusable components under the "src/components" directory as you see fit and use them in the "src/pages/SummaryPage.vue" page to minimise its length
+- [ok] Add a link validation rule to the following code located in "src/pages/PublicationPage.vue"
 
   ```html
   <q-input outlined label="Field" v-model="work.link">

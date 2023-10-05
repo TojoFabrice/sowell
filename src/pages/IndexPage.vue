@@ -28,6 +28,15 @@
         <publication-page></publication-page>
       </q-step>
 
+      <q-step
+        :name="4"
+        title="List users"
+        :icon="ionListOutline"
+        :disable="step > 4"
+      >
+        <users-list></users-list>
+      </q-step>
+
       <q-step :name="4" title="Summary" :icon="ionSaveOutline">
         <summary-page></summary-page>
       </q-step>
@@ -59,12 +68,14 @@ import {
   ProPage,
   PublicationPage,
   SummaryPage,
+  UsersList,
 } from 'src/pages/Stepper';
 import {
   ionPersonOutline,
   ionDocumentAttachOutline,
   ionBookOutline,
   ionSaveOutline,
+  ionListOutline,
 } from '@quasar/extras/ionicons-v5';
 import { ref } from 'vue';
 

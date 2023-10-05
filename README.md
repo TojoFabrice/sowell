@@ -46,7 +46,7 @@ Ideally, you will make one (1) commit for each of the following tasks:
 
   So that it will only accept valid http and https link, and display a red message under the input if the value typed is not a link.
 
-- [ ] Implement a validation check for every attributes displayed in the **Summary Page**. A _green_ icon will be used for valid values, a _red_ icon for invalid values, according to the following rules:
+- [ok] Implement a validation check for every attributes displayed in the **Summary Page**. A _green_ icon will be used for valid values, a _red_ icon for invalid values, according to the following rules:
 
   - firstname: required
   - lastname: (none)
@@ -66,9 +66,9 @@ Ideally, you will make one (1) commit for each of the following tasks:
       - link: required, valid link
       - year: required, valid year
 
-- [ ] Add a new step before the **Summary Page** displaying an **API Call Page**
-      The **API Call Page** will make a call to [this endpoint](https://jsonplaceholder.typicode.com/users) using any library you see fit and display the users list in a [QList](https://quasar.dev/vue-components/list-and-list-items#qlist-api) component.
-      The users list will contain a _name_, _username_ and _email_ as follow
+- [ok] Add a new step before the **Summary Page** displaying an **API Call Page**
+  The **API Call Page** will make a call to [this endpoint](https://jsonplaceholder.typicode.com/users) using any library you see fit and display the users list in a [QList](https://quasar.dev/vue-components/list-and-list-items#qlist-api) component.
+  The users list will contain a _name_, _username_ and _email_ as follow
   ```
   Leanne Graham (Bret)
   Sincere@april.biz

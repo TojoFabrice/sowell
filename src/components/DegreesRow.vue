@@ -11,7 +11,16 @@
       <td class="text-left">Title</td>
       <td class="text-right">{{ degree.title }}</td>
       <td class="text-right">
-        <q-icon name="check" color="positive" size="2em"></q-icon>
+        <q-icon
+          v-if="
+            degree.title !== null ||
+            degree.title !== undefined ||
+            degree.title !== ''
+          "
+          :name="degree.title ? 'check' : 'error'"
+          :color="degree.title ? 'positive' : 'negative'"
+          size="2em"
+        ></q-icon>
       </td>
     </tr>
     <tr>
@@ -25,7 +34,16 @@
       <td class="text-left">Year</td>
       <td class="text-right">{{ degree.year }}</td>
       <td class="text-right">
-        <q-icon name="check" color="positive" size="2em"></q-icon>
+        <q-icon
+          v-if="
+            degree.year.length == 4 ||
+            degree.year !== undefined ||
+            degree.year !== ''
+          "
+          :name="degree.year ? 'check' : 'error'"
+          :color="degree.year ? 'positive' : 'negative'"
+          size="2em"
+        ></q-icon>
       </td>
     </tr>
     <tr>

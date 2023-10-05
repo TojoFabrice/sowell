@@ -11,21 +11,39 @@
       <td class="text-left">Title</td>
       <td class="text-right">{{ work.title }}</td>
       <td class="text-right">
-        <q-icon name="check" color="positive" size="2em"></q-icon>
+        <q-icon
+          v-if="
+            work.title !== null || work.title !== undefined || work.title !== ''
+          "
+          :name="work.title ? 'check' : 'error'"
+          :color="work.title ? 'positive' : 'negative'"
+          size="2em"
+        ></q-icon>
       </td>
     </tr>
     <tr>
       <td class="text-left">Link</td>
       <td class="text-right">{{ work.link }}</td>
       <td class="text-right">
-        <q-icon name="check" color="positive" size="2em"></q-icon>
+        <q-icon
+          :name="isLinkValid(work.link) ? 'check' : 'error'"
+          :color="isLinkValid(work.link) ? 'positive' : 'negative'"
+          size="2em"
+        ></q-icon>
       </td>
     </tr>
     <tr>
       <td class="text-left">Year</td>
       <td class="text-right">{{ work.year }}</td>
       <td class="text-right">
-        <q-icon name="check" color="positive" size="2em"></q-icon>
+        <q-icon
+          v-if="
+            work.year.length == 4 || work.year !== undefined || work.year !== ''
+          "
+          :name="work.year ? 'check' : 'error'"
+          :color="work.year ? 'positive' : 'negative'"
+          size="2em"
+        ></q-icon>
       </td>
     </tr>
     <tr v-if="i < workCount - 1">
@@ -34,11 +52,18 @@
   </template>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: {
     workCount: Number,
     works: Object,
+  },
+  methods: {
+    isLinkValid(link: string) {
+      const linkPattern =
+        /^(http:\/\/|https:\/\/)(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/i;
+      return linkPattern.test(link);
+    },
   },
 };
 </script>

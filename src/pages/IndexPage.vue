@@ -37,7 +37,7 @@
         <users-list></users-list>
       </q-step>
 
-      <q-step :name="4" title="Summary" :icon="ionSaveOutline">
+      <q-step :name="5" title="Summary" :icon="ionSaveOutline">
         <summary-page></summary-page>
       </q-step>
 
@@ -46,7 +46,7 @@
           <q-btn
             @click="stepper.next()"
             color="primary"
-            :label="step === 4 ? 'Finish' : 'Continue'"
+            :label="step === 5 ? 'Finish' : 'Continue'"
           />
           <q-btn
             v-if="step > 1"
